@@ -94,19 +94,18 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({
     <>
       <div className={`bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group animate-scale-in ${!item.available ? 'opacity-60' : ''}`}>
         {item.popular && (
-          <div className="bg-black text-white text-xs font-medium px-3 py-1 rounded-full absolute top-4 right-4 z-10">
+          <div className="bg-green-600 text-white text-xs font-medium px-3 py-1 rounded-full absolute top-4 right-4 z-10">
             Popular
           </div>
         )}
         
         {!item.available && (
-          <div className="bg-red-500 text-white text-xs font-medium px-3 py-1 rounded-full absolute top-4 left-4 z-10">
+          <div className="bg-sage-500 text-white text-xs font-medium px-3 py-1 rounded-full absolute top-4 left-4 z-10">
             Unavailable
           </div>
         )}
         
-        <div className="aspect-w-16 aspect-h-9 bg-gradient-to-br from-cream-100 to-beige-200 relative">
-        <div className="aspect-w-16 aspect-h-9 bg-gradient-to-br from-cream-100 to-green-100 relative">
+        <div className="aspect-w-16 aspect-h-9 bg-gradient-to-br from-green-100 to-mint-100 relative">
           {item.image ? (
             <img
               src={item.image}
@@ -125,9 +124,8 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({
             />
           ) : null}
           <div className={`absolute inset-0 flex items-center justify-center ${item.image ? 'hidden' : ''}`}>
-            <div className="text-6xl opacity-30">☕</div>
+            <div className="text-6xl opacity-30">🥗</div>
           </div>
-        </div>
         </div>
         
         <div className="p-6">
@@ -161,22 +159,22 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({
             ) : quantity === 0 ? (
               <button
                 onClick={handleAddToCart}
-                className="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 transition-all duration-200 transform hover:scale-105 font-medium"
+                className="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition-all duration-200 transform hover:scale-105 font-medium"
               >
                 {item.variations?.length || item.addOns?.length ? 'Customize' : 'Add to Cart'}
               </button>
             ) : (
-              <div className="flex items-center space-x-3 bg-yellow-100 rounded-full p-1">
+              <div className="flex items-center space-x-3 bg-green-100 rounded-full p-1">
                 <button
                   onClick={handleDecrement}
-                  className="p-2 hover:bg-yellow-200 rounded-full transition-colors duration-200"
+                  className="p-2 hover:bg-green-200 rounded-full transition-colors duration-200"
                 >
                   <Minus className="h-4 w-4" />
                 </button>
                 <span className="font-semibold text-black min-w-[24px] text-center">{quantity}</span>
                 <button
                   onClick={handleIncrement}
-                  className="p-2 hover:bg-yellow-200 rounded-full transition-colors duration-200"
+                  className="p-2 hover:bg-green-200 rounded-full transition-colors duration-200"
                 >
                   <Plus className="h-4 w-4" />
                 </button>
