@@ -21,10 +21,10 @@ const Header: React.FC<HeaderProps> = ({ cartItemsCount, onCartClick, onMenuClic
           </button>
           
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#salads" className="text-sage-700 hover:text-green-600 transition-colors duration-200">Salads</a>
-            <a href="#bowls" className="text-sage-700 hover:text-green-600 transition-colors duration-200">Bowls</a>
-            <a href="#smoothies" className="text-sage-700 hover:text-green-600 transition-colors duration-200">Smoothies</a>
-            <a href="#snacks" className="text-sage-700 hover:text-green-600 transition-colors duration-200">Healthy Snacks</a>
+            <a href="#hot-coffee" className="text-sage-700 hover:text-green-600 transition-colors duration-200">Salads</a>
+            <a href="#iced-coffee" className="text-sage-700 hover:text-green-600 transition-colors duration-200">Pasta</a>
+            <a href="#combo-meals" className="text-sage-700 hover:text-green-600 transition-colors duration-200">Combo Meals</a>
+            <a href="#non-coffee" className="text-sage-700 hover:text-green-600 transition-colors duration-200">Drinks</a>
           </nav>
           
           <div className="flex items-center space-x-2">

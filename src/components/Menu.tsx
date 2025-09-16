@@ -56,10 +56,43 @@ const Menu: React.FC<MenuProps> = ({ menuItems, addToCart, cartItems, updateQuan
     }
   };
 
+  // Handle hash navigation on page load and when hash changes
+  React.useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1); // Remove # from hash
+      if (hash && categories.some(cat => cat.id === hash)) {
+        setActiveCategory(hash);
+        setTimeout(() => {
+          const element = document.getElementById(hash);
+          if (element) {
+            const headerHeight = 64;
+            const mobileNavHeight = 60;
+            const offset = headerHeight + mobileNavHeight + 20;
+            const elementPosition = element.offsetTop - offset;
+            window.scrollTo({
+              top: elementPosition,
+              behavior: 'smooth'
+            });
+          }
+        }, 100);
+      }
+    };
+
+    // Handle initial hash on page load
+    handleHashChange();
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange);
+    
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, [categories]);
+
   React.useEffect(() => {
     if (categories.length > 0) {
-      // Set default to dim-sum if it exists, otherwise first category
-      const defaultCategory = categories.find(cat => cat.id === 'dim-sum') || categories[0];
+      // Set default to hot-coffee (Salads) if it exists, otherwise first category
+      const defaultCategory = categories.find(cat => cat.id === 'hot-coffee') || categories[0];
       if (!categories.find(cat => cat.id === activeCategory)) {
         setActiveCategory(defaultCategory.id);
       }
